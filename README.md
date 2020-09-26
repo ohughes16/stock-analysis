@@ -5,7 +5,7 @@ I wrote Steve code to analyze various workshets of stock data based on year at t
 
 I wanted to investigate if the code could be designed to run faster if we were to increase the number of tickers being analyzed down the line. This project was designed to compare the efficiency of different VBA logic for Steve's analysis. If we took the nested for loop out of the macro, and were able to write the macro to have a single for loop with values stored in an array and used a counter to index the data as we went through the sheet one time. 
 ## Results
-Utilizing a single for loop to go through the 3012 rows a single time caused the speed of the macro to increase by a factor of 10.
+Utilizing a single for loop to go through the 3012 rows a single time caused the speed of the macro to increase to be twelve times faster. We utilized a timer at the begining and the end of the code to compare the speed of the original and refactored macros.
 
 ![VBA_Challenge_2017_original](https://user-images.githubusercontent.com/64506842/94330506-229c8f00-ff7a-11ea-84d4-b6b059371a56.PNG)
 ![VBA_Challenge_2017_refactored](https://user-images.githubusercontent.com/64506842/94330509-23352580-ff7a-11ea-92bd-0a5177e5a04a.PNG)
@@ -15,4 +15,7 @@ Utilizing a single for loop to go through the 3012 rows a single time caused the
 
 ## Summary
 ### What are the advantages or disadvantages of refactoring code?
+The refactored code runs through the spreadsheet of the 12 tickers 12 times faster than the original VBA script. As the number of tickers that need to be analyzed increase, the speed of the code would remain much faster than the original VBA script. The disadvantage to the refactoring of this code is that the tickers must be in order for the macro to run correctly.  If the tickers were not incremental, the values would be indexed in the array incorrectly. 
 ### How do these pros and cons apply to refactoring the original VBA script?
+The benefit to the original VBA script is that the tickers do not have to be sequential for the outcome to remain to be correct. Since you're running through the entire sheet looking for each ticker individually, you are able to look through ticker data that is out of order. 
+The disadvantage of the nested for loop is that as the number of tickers increases, the for loop has to run through the entire spreadsheet that many  more times.
